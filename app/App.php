@@ -23,9 +23,19 @@ function getTransactions(string $fileName): array {
     fgetcsv($file);
     $transactions=[];
     while(($transaction=fgetcsv($file))!==false){
-        $transactions[]=$transaction;
+        $transactions[]=extractTransaction($transaction);
     }
     return $transactions;
 }
 
-
+// remove the $ and comma signs from amount to make data consistent
+function extractTransaction(array $transactionRow): array{
+    [$date,$checkNumber,$description, $amount]=$transactionRow;
+    $amount=(float)str_replace(['$',','], '',$amount);
+    return [
+        'date'=>$date,
+        'checkNumber'=>$checkNumber,
+        'description'=>$description,
+        'amount'=>$amount,
+    ];
+}

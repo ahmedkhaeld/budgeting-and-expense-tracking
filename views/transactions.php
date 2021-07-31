@@ -38,10 +38,10 @@
                 <?php if(! empty( $transactions)){  ?>
                     <?php foreach ( $transactions as $transaction){ ?>
                         <tr>
-                            <td><?php echo $transaction[0]?></td>
-                            <td><?php echo $transaction[1]?></td>
-                            <td><?php echo $transaction[2]?></td>
-                            <td><?php echo $transaction[3]?></td>
+                            <td><?php echo $transaction['date']?></td>
+                            <td><?php echo $transaction['checkNumber']?></td>
+                            <td><?php echo $transaction['description']?></td>
+                            <td><?php echo $transaction['amount']?></td>
                         </tr>
                     <?php }?>
                 <?php }?>
