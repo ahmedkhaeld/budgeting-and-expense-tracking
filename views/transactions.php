@@ -35,6 +35,16 @@
             </thead>
             <tbody>
                 <!-- YOUR CODE -->
+                <?php if(! empty( $transactions)){  ?>
+                    <?php foreach ( $transactions as $transaction){ ?>
+                        <tr>
+                            <td><?php echo $transaction[0]?></td>
+                            <td><?php echo $transaction[1]?></td>
+                            <td><?php echo $transaction[2]?></td>
+                            <td><?php echo $transaction[3]?></td>
+                        </tr>
+                    <?php }?>
+                <?php }?>
             </tbody>
             <tfoot>
                 <tr>
