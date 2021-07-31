@@ -41,7 +41,7 @@
                             <td><?php echo $transaction['date']?></td>
                             <td><?php echo $transaction['checkNumber']?></td>
                             <td><?php echo $transaction['description']?></td>
-                            <td><?php echo $transaction['amount']?></td>
+                            <td><?php echo formatDollarAmount($transaction['amount'])?></td>
                         </tr>
                     <?php }?>
                 <?php }?>
@@ -49,15 +49,15 @@
             <tfoot>
                 <tr>
                     <th colspan="3">Total Income:</th>
-                    <td><?php echo $totals['totalIncome'] ?? 0 ?></td>
+                    <td><?php echo formatDollarAmount($totals['totalIncome'] ?? 0) ?></td>
                 </tr>
                 <tr>
                     <th colspan="3">Total Expense:</th>
-                    <td><?php echo $totals['totalExpense'] ?? 0 ?></td>
+                    <td><?php echo formatDollarAmount($totals['totalExpense'] ?? 0) ?></td>
                 </tr>
                 <tr>
                     <th colspan="3">Net Total:</th>
-                    <td><?php echo $totals['netTotal'] ?? 0 ?></td>
+                    <td><?php echo formatDollarAmount($totals['netTotal'] ?? 0) ?></td>
                 </tr>
             </tfoot>
         </table>
