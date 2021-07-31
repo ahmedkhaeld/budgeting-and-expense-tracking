@@ -42,3 +42,17 @@ function extractTransaction(array $transactionRow): array{
         'amount'=>$amount,
     ];
 }
+
+function calulateTotals(array $transactions): array {
+    $totals =['netTotal'=>0, 'totalIncome'=>0,'totalExpense'=>0];
+
+    foreach($transactions as $transaction){
+        $totals['netTotal']+=$transaction['amount'];
+        if($transaction['amount']>=0){
+            $totals['totalIncome']+= $transaction['amount'];
+        }else{
+            $totals['totalExpense']+= $transaction['amount'];
+        }
+    }
+    return $totals;
+}

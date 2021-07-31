@@ -14,6 +14,7 @@ $transactions=[];
 foreach($files as $file){
     $transactions=array_merge($transactions,getTransactions($file, 'extractTransaction'));
 }
+$totals=calulateTotals($transactions);
 
 // display the transactions in HTML table so require the view directory
 require VIEWS_PATH. "transactions.php"; 
